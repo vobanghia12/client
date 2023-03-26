@@ -2,19 +2,20 @@ import axios from "axios";
 
 const REST_API_URL = "https://lqdon.com";
 
-const onRegister = async (body) => {
+export const onRegister = async (body) => {
   try {
-    const { res } = await axios.post(
+    const res = await axios.post(
       `${REST_API_URL}/api-auth/v1/registration/`,
       body
     );
+
     return res.data;
   } catch (err) {
     console.error(err.message);
   }
 };
 
-const onVerifyEmail = async (body) => {
+export const onVerifyEmail = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/registration/verify-email/`,
@@ -26,7 +27,7 @@ const onVerifyEmail = async (body) => {
   }
 };
 
-const onResendVerify = async (body) => {
+export const onResendVerify = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/registration/resend-email/`,
@@ -38,7 +39,7 @@ const onResendVerify = async (body) => {
   }
 };
 
-const onLogin = async (body) => {
+export const onLogin = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/login/`,
@@ -50,7 +51,7 @@ const onLogin = async (body) => {
   }
 };
 
-const onResetPassword = async (body) => {
+export const onResetPassword = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/password/reset/`,
@@ -62,7 +63,7 @@ const onResetPassword = async (body) => {
   }
 };
 
-const onResetPasswordConfirm = async (body) => {
+export const onResetPasswordConfirm = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/password/reset/confirm/`,
@@ -74,7 +75,7 @@ const onResetPasswordConfirm = async (body) => {
   }
 };
 
-const onResetPasswordChange = async (body) => {
+export const onResetPasswordChange = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/password/change/`,
@@ -86,7 +87,7 @@ const onResetPasswordChange = async (body) => {
   }
 };
 
-const onReFreshToken = async (body) => {
+export const onReFreshToken = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/token/refresh/`,
@@ -98,7 +99,7 @@ const onReFreshToken = async (body) => {
   }
 };
 
-const onVerifyToken = async (body) => {
+export const onVerifyToken = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/token/verify/`,
@@ -110,7 +111,7 @@ const onVerifyToken = async (body) => {
   }
 };
 
-const onUserDetail = async (body) => {
+export const onUserDetail = async (body) => {
   try {
     const { res } = await axios.get(`${REST_API_URL}/api-auth/v1/user/`, body);
     return res.data;
@@ -119,7 +120,7 @@ const onUserDetail = async (body) => {
   }
 };
 
-const onGetMe = async (body) => {
+export const onGetMe = async (body) => {
   try {
     const { res } = await axios.get(`${REST_API_URL}/api/v1/me/`, body);
     return res.data;
@@ -128,7 +129,7 @@ const onGetMe = async (body) => {
   }
 };
 
-const onRegisterMetamask = async (body) => {
+export const onRegisterMetamask = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/metamask/registration/`,
@@ -140,7 +141,7 @@ const onRegisterMetamask = async (body) => {
   }
 };
 
-const onGetNonce = async (body) => {
+export const onGetNonce = async (body) => {
   try {
     const { res } = await axios.get(
       `${REST_API_URL}/api-auth/v1/metamask/registration/0xed00Af4d737712dAE2e4a2DaB61E257053862191`,
@@ -152,7 +153,7 @@ const onGetNonce = async (body) => {
   }
 };
 
-const onLoginMetamask = async (body) => {
+export const onLoginMetamask = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/metamask/login/0xed00Af4d737712dAE2e4a2DaB61E257053862191`,
@@ -164,7 +165,7 @@ const onLoginMetamask = async (body) => {
   }
 };
 
-const onDiscord = async (body) => {
+export const onDiscord = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/discord/`,
@@ -176,7 +177,7 @@ const onDiscord = async (body) => {
   }
 };
 
-const onGithub = async (body) => {
+export const onGithub = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/github/`,
@@ -188,7 +189,7 @@ const onGithub = async (body) => {
   }
 };
 
-const onSignMessage = async (body) => {
+export const onSignMessage = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api/v1/sign-message/`,
@@ -200,7 +201,7 @@ const onSignMessage = async (body) => {
   }
 };
 
-const onNewRequest = async (body) => {
+export const onNewRequest = async (body) => {
   try {
     const { res } = await axios.post(
       `${REST_API_URL}/api-auth/v1/registration/manufacturer/`,

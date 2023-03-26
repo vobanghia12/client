@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import { Button } from "../components/UI/Button";
-import axios from "axios";
-import { Register } from "../API/api";
+import { onRegister } from "../API/Auth";
 
 export const SignUpManuFacture = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [company, setCompany] = useState("");
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    try {
-      const { res } = await axios.post(Register(), {
-        email: email,
-        username: username,
-        password1: password,
-        password2: confirmPassword,
-      });
-      console.log(res);
-    } catch (err) {
-      console.error(err.message);
-    }
+    const body = {
+      email: email,
+      username: username,
+      password1: password,
+      password2: confirmPassword,
+    };
+    console.log(body);
+    const data = await onRegister(body);
+    setEmail("");
+    setUsername("");
+    setPassword("");
+    setConfirmPassword("");
+    setCompany("");
   };
   return (
     <div class="h-screen">
@@ -64,6 +66,8 @@ export const SignUpManuFacture = () => {
         <input
           className="m-auto block my-5 w-5/12 p-2 font-[Roboto]"
           placeholder="Name Business"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
         ></input>
         <ul className="text-white font-[Roboto] flex mx-2">
           <li>
